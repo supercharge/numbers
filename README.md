@@ -5,10 +5,10 @@
   <br/>
   <br/>
   <p>
-    <h3>Package Name</h3>
+    <h3>Numbers</h3>
   </p>
   <p>
-    Short description of the package
+    Number utilities for Node.js and JavaScript
   </p>
   <br/>
   <p>
@@ -50,11 +50,11 @@ Using `@supercharge/numbers` is pretty straightforward.
 For example, you may …:
 
 ```js
-const Pkg = require('@supercharge/numbers')
+const Num = require('@supercharge/numbers')
 
-await Pkg.method()
+Num(5).isInteger()
 
-// Result goes here
+// true
 ```
 
 
