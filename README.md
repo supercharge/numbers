@@ -19,8 +19,8 @@
   <br/>
   <br/>
   <p>
-    <a href="https://www.npmjs.com/package/@supercharge/:packageName"><img src="https://img.shields.io/npm/v/@supercharge/:packageName.svg" alt="Latest Version"></a>
-    <a href="https://www.npmjs.com/package/@supercharge/:packageName"><img src="https://img.shields.io/npm/dm/@supercharge/:packageName.svg" alt="Monthly downloads"></a>
+    <a href="https://www.npmjs.com/package/@supercharge/numbers"><img src="https://img.shields.io/npm/v/@supercharge/numbers.svg" alt="Latest Version"></a>
+    <a href="https://www.npmjs.com/package/@supercharge/numbers"><img src="https://img.shields.io/npm/dm/@supercharge/numbers.svg" alt="Monthly downloads"></a>
   </p>
   <p>
     <em>Follow <a href="http://twitter.com/marcuspoehls">@marcuspoehls</a> and <a href="http://twitter.com/superchargejs">@superchargejs</a> for updates!</em>
@@ -30,27 +30,27 @@
 ---
 
 ## Introduction
-A short introduction for `@supercharge/:packageName`.
+A short introduction for `@supercharge/numbers`.
 
 
 ## Installation
 
 ```
-npm i @supercharge/:packageName
+npm i @supercharge/numbers
 ```
 
 
 ## Docs
-Find all the [details for `@supercharge/:packageName` in the extensive Supercharge docs](https://superchargejs.com/docs/:packageName).
+Find all the [details for `@supercharge/numbers` in the extensive Supercharge docs](https://superchargejs.com/docs/numbers).
 
 
 ## Usage
-Using `@supercharge/:packageName` is pretty straightforward.
+Using `@supercharge/numbers` is pretty straightforward.
 
 For example, you may …:
 
 ```js
-const Pkg = require('@supercharge/:packageName')
+const Pkg = require('@supercharge/numbers')
 
 await Pkg.method()
 

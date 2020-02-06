@@ -1,6 +1,10 @@
 'use strict'
 
-const Skeleton = require('./skeleton-class')
+const Num = require('./num')
 
-module.exports = Skeleton
-module.exports.default = Skeleton
+const numbers = value => {
+  return new Num(value)
+}
+
+module.exports = numbers
+module.exports.default = numbers
