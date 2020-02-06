@@ -8,3 +8,5 @@ const numbers = value => {
 
 module.exports = numbers
 module.exports.default = numbers
+
+module.exports.between = Num.between

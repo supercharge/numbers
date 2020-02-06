@@ -11,4 +11,9 @@ describe('Num', () => {
     expect(Num(5).isInteger()).to.be.true()
     expect(Num(1.5).isInteger()).to.be.false()
   })
+
+  it('between', () => {
+    expect(Num.between(2, 5)).to.be.below(6).and.above(1)
+    expect(Num.between(2, 2)).to.equal(2)
+  })
 })
