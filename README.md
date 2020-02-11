@@ -30,7 +30,7 @@
 ---
 
 ## Introduction
-The `@supercharge/numbers` packages provides convenient helpers when working with numbers, like generating a random number in range.
+The `@supercharge/numbers` package extends JavaScripthttps://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Numbers [`Number`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Number) class to provide additional helper methods when working with numbers, like generating a random number in a given range.
 
 
 ## Installation
@@ -49,11 +49,6 @@ Using `@supercharge/numbers` is pretty straightforward. Use the exposed static m
 
 ```js
 const Num = require('@supercharge/numbers')
-
-Num.isInteger(5)
-// true
-Num.isInteger(5.5)
-// false
 
 Num.randomInt(0, 10)
 // 10
