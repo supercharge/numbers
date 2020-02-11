@@ -2,33 +2,64 @@
 
 class Num {
   /**
-   * Create a new skeleton instance.
-   */
-  constructor (value) {
-    this.value = Number(value)
-  }
-
-  /**
    * Determine whether the number is an integer.
    *
    * @returns {Boolean}
    */
-  isInteger () {
-    return Number.isInteger(this.value)
+  static isInteger (num) {
+    return Number.isInteger(num)
+  }
+
+  /**
+   * Generates and returns a random integer in range from
+   * `start` to `end`. Both, `start` and `end` are
+   * included in the random number generation process.
+   *
+   * @param {Number} min
+   * @param {Number} max
+   *
+   * @returns {Number}
+   */
+  static randomInt (min, max) {
+    return Math.floor(
+      Math.random() * (max - min + 1)
+    ) + min
   }
 
   /**
    * Generates and returns a random number between then given
    * `start` and `end` numbers. Both, start and end are
-   * included in the random number generation process.
+   * excluded in the random number generation process.
    *
-   * @param {Number} start
-   * @param {Number} end
+   * @param {Number} min
+   * @param {Number} max
    *
    * @returns {Number}
    */
-  static between (start, end) {
-    return Math.floor(Math.random() * (end - start + 1) + start)
+  static randomIntBetween (min, max) {
+    if (this.diff(max, min) <= 1) {
+      return
+    }
+
+    return Math.floor(
+      Math.random() * (max - (min + 1))
+    ) + (min + 1)
+  }
+
+  /**
+   * Returns the difference between the first item and the rest.
+   *
+   * @param {Number} a
+   * @param {...Number} rest
+   *
+   * @returns {Number}
+   */
+  static diff (a, ...nums) {
+    const sum = nums.reduce((sum, number) => {
+      return sum + number
+    }, 0)
+
+    return a - sum
   }
 }
 
