@@ -30,7 +30,7 @@
 ---
 
 ## Introduction
-A short introduction for `@supercharge/numbers`.
+The `@supercharge/numbers` packages provides convenient helpers when working with numbers, like generating a random number in range.
 
 
 ## Installation
@@ -45,16 +45,23 @@ Find all the [details for `@supercharge/numbers` in the extensive Supercharge do
 
 
 ## Usage
-Using `@supercharge/numbers` is pretty straightforward.
-
-For example, you may …:
+Using `@supercharge/numbers` is pretty straightforward. Use the exposed static methods directly from the imported package:
 
 ```js
 const Num = require('@supercharge/numbers')
 
-Num(5).isInteger()
-
+Num.isInteger(5)
 // true
+Num.isInteger(5.5)
+// false
+
+Num.randomInt(0, 10)
+// 10
+// randomInt returns a number from 0 to 10 (inclusive start and end)
+
+Num.randomIntBetween(0, 10)
+// 4
+// randomIntBetween returns a number from 1 to 9 (exclusive start and end)
 ```
 
 
