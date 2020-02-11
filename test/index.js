@@ -30,4 +30,16 @@ describe('Num', () => {
     expect(Num.diff(10, 1, 1, 1)).to.equal(7)
     expect(Num.diff(10)).to.equal(10)
   })
+
+  it('allIntBetween', () => {
+    expect(Num.allIntInRange(7, 12)).to.equal([7, 8, 9, 10, 11, 12])
+    expect(Num.allIntInRange(10, 2)).to.equal([])
+  })
+
+  it('randomIntInRange', () => {
+    expect(Num.randomIntInRange(7, 12)).to.be.in.range(7, 12)
+    expect(Num.randomIntInRange(12, 7)).to.be.undefined()
+    expect(Num.randomIntInRange(7, 8, { except: [8] })).to.equal(7)
+    expect(Num.randomIntInRange(7, 10, { except: [8] })).to.be.in.range(7, 10).and.not.equal(8)
+  })
 })
