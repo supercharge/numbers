@@ -1,6 +1,6 @@
 'use strict'
 
-const Num = require('../src')
+const Num = require('..')
 const Lab = require('@hapi/lab')
 const { expect } = require('@hapi/code')
 
@@ -12,9 +12,22 @@ describe('Num', () => {
     expect(Num.isInteger(1.5)).to.be.false()
   })
 
-  it('randomInt', () => {
-    expect(Num.randomInt(2, 5)).to.be.in.range(2, 5)
-    expect(Num.randomInt(2, 2)).to.equal(2)
+  it('randomIntWithin', () => {
+    expect(Num.randomIntWithin(2, 5)).to.be.in.range(2, 5)
+    expect(Num.randomIntWithin(2, 2)).to.equal(2)
+    expect(Num.randomIntWithin(2, 2)).to.equal(2)
+    expect(Num.randomIntWithin(2, 3, { except: 2 })).to.equal(3)
+    expect(Num.randomIntWithin(3, 1)).to.be.undefined()
+    expect(Num.randomIntWithin()).to.be.undefined()
+  })
+
+  it('allIntWithin', () => {
+    expect(Num.allIntWithin(7, 12)).to.equal([7, 8, 9, 10, 11, 12])
+    expect(Num.allIntWithin(10, 2)).to.equal([])
+    expect(Num.allIntWithin(1, 1)).to.equal([1])
+    expect(Num.allIntWithin(1, 3, null)).to.equal([1, 2, 3])
+    expect(Num.allIntWithin(1, 2, { except: 2 })).to.equal([1])
+    expect(Num.allIntWithin(1, 3, { except: [2] })).to.equal([1, 3])
   })
 
   it('randomIntBetween', () => {
@@ -23,23 +36,14 @@ describe('Num', () => {
     expect(Num.randomIntBetween(2, 2)).to.be.undefined()
     expect(Num.randomIntBetween(2, 3)).to.be.undefined()
     expect(Num.randomIntBetween(10, 5)).to.be.undefined()
+    expect(Num.randomIntBetween(1, 3, null)).to.be.between(1, 3)
+    expect(Num.randomIntBetween(1, 4, { except: 2 })).to.equal(3)
+    expect(Num.randomIntBetween(1, 4, { except: [2] })).to.equal(3)
   })
 
   it('diff', () => {
     expect(Num.diff(2, 5)).to.equal(-3)
     expect(Num.diff(10, 1, 1, 1)).to.equal(7)
     expect(Num.diff(10)).to.equal(10)
-  })
-
-  it('allIntBetween', () => {
-    expect(Num.allIntInRange(7, 12)).to.equal([7, 8, 9, 10, 11, 12])
-    expect(Num.allIntInRange(10, 2)).to.equal([])
-  })
-
-  it('randomIntInRange', () => {
-    expect(Num.randomIntInRange(7, 12)).to.be.in.range(7, 12)
-    expect(Num.randomIntInRange(12, 7)).to.be.undefined()
-    expect(Num.randomIntInRange(7, 8, { except: [8] })).to.equal(7)
-    expect(Num.randomIntInRange(7, 10, { except: [8] })).to.be.in.range(7, 10).and.not.equal(8)
   })
 })
