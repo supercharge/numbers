@@ -1,9 +1,10 @@
 # Changelog
 
 
-## [2.0.0](https://github.com/supercharge/numbers/compare/v1.1.0...v2.0.0) - 2020-05-xx
+## [2.0.0](https://github.com/supercharge/numbers/compare/v1.1.0...v2.0.0) - 2020-07-27
 
 ### Added
+- `isDecimal(number)` method to determine whether the given `number` is a number with decimal places
 - options as the third parameters to all methods generating random integers
   - the options object currently allow the `except` property to exclude an array of numbers when generating a random number. Example: `Num.randomIntWithin(10, 20, { except: [14, 15] })`
 
