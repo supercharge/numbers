@@ -12,6 +12,14 @@ describe('Num', () => {
     expect(Num.isInteger(1.5)).to.be.false()
   })
 
+  it('isDecimal', () => {
+    expect(Num.isDecimal(5.1)).to.be.true()
+    expect(Num.isDecimal(5.123456789)).to.be.true()
+
+    expect(Num.isDecimal(1)).to.be.false()
+    expect(Num.isDecimal('')).to.be.false()
+  })
+
   it('randomIntWithin', () => {
     expect(Num.randomIntWithin(2, 5)).to.be.in.range(2, 5)
     expect(Num.randomIntWithin(2, 2)).to.equal(2)

@@ -88,4 +88,16 @@ export class Num extends Number {
 
     return a - sum
   }
+
+  /**
+   * Determine whether the given `number` has decimal places. Returns
+   * `true` if the value passed has decimal places, `false` otherwise.
+   *
+   * @param {Number} number
+   *
+   * @returns {Boolean}
+   */
+  static isDecimal (number: number): boolean {
+    return typeof number === 'number' && !this.isInteger(number)
+  }
 }
