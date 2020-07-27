@@ -1,7 +1,7 @@
 {
   "name": "@supercharge/numbers",
   "description": "Extended Number utilities for Node.js and JavaScript",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "author": "Marcus Pöhls <marcus@superchargejs.com>",
   "bugs": {
     "url": "https://github.com/supercharge/numbers/issues"
