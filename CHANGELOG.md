@@ -1,7 +1,7 @@
 # Changelog
 
 
-## [2.1.0](https://github.com/supercharge/pipeline/compare/v2.0.0...v2.1.0) - 2020-08-xx
+## [2.1.0](https://github.com/supercharge/numbers/compare/v2.0.0...v2.1.0) - 2020-08-xx
 
 ### Updated
 - bump dependencies
