@@ -1,6 +1,6 @@
 'use strict'
 
-const Num = require('..')
+const Num = require('../dist')
 
 describe('Num', () => {
   it('isInteger', () => {

@@ -21,8 +21,7 @@
     "typescript": "~4.0.2"
   },
   "files": [
-    "dist",
-    "index.js"
+    "dist"
   ],
   "homepage": "https://github.com/supercharge/numbers",
   "keywords": [
@@ -34,7 +33,7 @@
     "superchargejs"
   ],
   "license": "MIT",
-  "main": "index.js",
+  "main": "dist",
   "publishConfig": {
     "access": "public"
   },
