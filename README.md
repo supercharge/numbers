@@ -50,13 +50,16 @@ Using `@supercharge/numbers` is pretty straightforward. Use the exposed static m
 ```js
 const Num = require('@supercharge/numbers')
 
-Num.randomInt(0, 10)
+Num.randomIntWithin(0, 10)
 // 10
-// randomInt returns a number from 0 to 10 (inclusive start and end)
+// returns a number from 0 to 10 (inclusive start and end)
 
 Num.randomIntBetween(0, 10)
 // 4
-// randomIntBetween returns a number from 1 to 9 (exclusive start and end)
+// returns a number from 1 to 9 (exclusive start and end)
+
+Num(10).isInRange(0, 10)
+// true (min and max are inclusive)
 ```
 
 
