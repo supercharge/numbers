@@ -1,103 +1,85 @@
 'use strict'
 
-import { RandomIntInRangeOptions as RandomIntOptions } from './options'
+import { NumContract } from './num-contract'
 
-export class Num extends Number {
+export class Num extends Number implements NumContract {
   /**
-   * Generates and returns a random integer in range from
-   * `min` to `max`. Both, `min` and `max` are included
-   * in the random number generation process.
-   *
-   * @param {Number} min
-   * @param {Number} max
-   *
-   * @returns {Number}
+   * Stores the number value.
    */
-  static randomIntWithin (min: number, max: number, options?: RandomIntOptions): number {
-    const candidates = this.allIntWithin(min, max, options)
+  private readonly value: number
 
-    const index = Math.floor(Math.random() * candidates.length)
+  /**
+   * Create a new Num instance for the given value.
+   *
+   * @param value
+   */
+  constructor (value?: any) {
+    super(value)
 
-    return candidates[index]
+    this.value = Number(value)
   }
 
   /**
-   * Returns an array of all integer values in range from
-   * `min` to `max`, including both `min` and `max`.
-   *
-   * @param {Number} min
-   * @param {Number} max
-   *
-   * @returns {Array}
+   * Returns the numeric value of this instance.
    */
-  static allIntWithin (min: number, max: number, options?: RandomIntOptions): number[] {
-    if (this.diff(max, min) < 0) {
-      return []
-    }
-
-    const { except = [] } = options ?? { }
-    const exceptions = ([] as number[]).concat(except)
-
-    return Array
-      .from(
-        { length: max - min + 1 },
-        (_, index) => index + min // mapping function filling the array
-      )
-      .filter(candidate => {
-        return !exceptions.includes(candidate)
-      })
+  get (): number {
+    return this.value
   }
 
   /**
-   * Generates and returns a random number between then given
-   * `min` and `max` numbers. Both, `min` and `max` are
-   * excluded in the random number generation process.
+   * Determine whether a given number matches the range of `min` and `max`.
+   * Both, `min` and `max` are considered part of the available range.
    *
    * @param {Number} min
    * @param {Number} max
-   *
-   * @returns {Number}
    */
-  static randomIntBetween (min: number, max: number, options?: RandomIntOptions): number|undefined {
-    if (this.diff(max, min) <= 1) {
-      return
-    }
-
-    const { except = [] } = options ?? { }
-    const exceptions = ([] as number[]).concat(except).concat([min, max])
-
-    const candidates = this.allIntWithin(min, max, { except: exceptions })
-
-    const index = Math.floor(Math.random() * candidates.length)
-
-    return candidates[index]
+  isInRange (min: number, max: number): boolean {
+    return this.isAnyNullish(min, max)
+      ? false
+      : min <= this.value && this.value <= max
   }
 
   /**
-   * Returns the difference between the first item and the rest.
+   * Returns the difference of the number and the given `numberss`.
    *
-   * @param {Number} a
-   * @param {...Number} rest
-   *
-   * @returns {Number}
+   * @param {Number[]} numbers
    */
-  static diff (a: number, ...nums: number[]): number {
-    const sum = nums.reduce((sum, number) => {
+  diff (...numbers: number[]): number {
+    return this.value - this.sum(...numbers)
+  }
+
+  /**
+   * Returns the sum of the given `numbers`.
+   *
+   * @param {Number[]} numbers
+   */
+  sum (...numbers: number[]): number {
+    return [...numbers].reduce((sum, number) => {
       return sum + number
     }, 0)
-
-    return a - sum
   }
 
   /**
-   * Determine whether the given `number` has decimal places. Returns
-   * `true` if the value passed has decimal places, `false` otherwise.
+   * Determine whether any of the given `inputs` is nullish.
    *
-   * @param {Number} number
+   * @param inputs
    *
    * @returns {Boolean}
    */
-  static isDecimal (number: number): boolean {
-    return typeof number === 'number' && !this.isInteger(number)
+  private isAnyNullish (...inputs: any): boolean {
+    return [].concat(inputs).some(input => {
+      return this.isNullish(input)
+    })
+  }
+
+  /**
+   * Determine whether the given `input` is nullish.
+   *
+   * @param input
+   *
+   * @returns {Boolean}
+   */
+  private isNullish (input: any): boolean {
+    return input === undefined || input === null
   }
 }
