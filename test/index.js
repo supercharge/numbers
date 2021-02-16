@@ -2,13 +2,10 @@
 
 const Num = require('../dist')
 
-const { isNumber } = Num
-
-console.log(isNumber(123))
-
 describe('Num', () => {
   describe('Num statics', () => {
     it('isNumber', () => {
+      expect(Num.isNumber(0)).toBe(true)
       expect(Num.isNumber(5)).toBe(true)
       expect(Num.isNumber(1.5)).toBe(true)
       expect(Num.isNumber(Date.now())).toBe(true)
