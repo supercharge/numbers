@@ -10,17 +10,24 @@ export interface NumConstructor {
   (value?: any): NumContract
 
   /**
+   * Determine whether the given `input` is a number.
+   *
+   * @param input - the `input` value to check whether it’s a number
+   */
+  isNumber (input?: any): boolean
+
+  /**
    * Returns true if the value passed is an integer, false otherwise.
    * @param number A numeric value.
    */
   isInteger(number: unknown): boolean
 
   /**
-   * Determine whether the given `input` is a number.
+   * Determine whether the given `number` is not an integer value.
    *
-   * @param input - the `input` value to check whether it’s a number
+   * @param {Number} number
    */
-  isNumber (input?: any): boolean
+  isNotInteger (number: unknown): boolean
 
   /**
    * Determine whether the given `number` has decimal places. Returns
@@ -29,13 +36,6 @@ export interface NumConstructor {
    * @param {Number} number
    */
   isDecimal (number: unknown): boolean
-
-  /**
-   * Determine whether the given `number` is not an integer value.
-   *
-   * @param {Number} number
-   */
-  isNotInteger (number: unknown): boolean
 
   /**
    * Generates and returns a random integer in the range of `min` to `max`.
